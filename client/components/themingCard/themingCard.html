@@ -1,0 +1,49 @@
+<template name="themingCard">
+  <aside id="themingCard" class="helveticas rightDockedCard">
+    <div class="cardHandle"></div>
+
+    <label for="appTitleInput" class="form-label">App Title</label>
+    <input id="appTitleInput" type="text" name="appTitle" value="{{getAppTitle}}" placeholder="App Title">
+    <br>
+
+    <label for="backgroundImgSrcInput" class="form-label">Background Image (Url)</label>
+    <input id="backgroundImgSrcInput" type="text" name="backgroundImgSrcInput" value="{{getBackgroundImgSrcInput}}" placeholder="http://somewhere.com/background.jpg">
+    <br>
+
+    <label for="backgroundBtn" class="form-label">Background Opacity</label><br>
+    <button id="backgroundBtn" class="booleanButton">Background</button>
+    <button id="opacityBtn" class="booleanButton">Opacity</button>
+    <br>
+
+    <label for="cardWidthBtn" class="form-label">Card/Page Default</label><br>
+    <button class="cardWidthBtn booleanButton">Card</button>
+    <button class="pageWidthBtn booleanButton">Page</button>
+    <br>
+
+    <label for="fullNavBtn" class="form-label">Page Width</label><br>
+    <button class="fullNavBtn booleanButton">Full Screen</button>
+    <button class="narrowNavBtn booleanButton">Page</button>
+    <br>
+    <br>
+    <br>
+
+    <label for="cardWidthBtn" class="form-label">Card/Page Default</label><br>
+    <button type="button" id="redBtn" class="redBtn colorThemeBtn"></button>
+    <button type="button" id="blueBtn" class="blueBtn colorThemeBtn"></button>
+    <button type="button" id="medbookBtn" class="medbookBtn colorThemeBtn"></button>
+    <button type="button" id="greenBtn" class="greenBtn colorThemeBtn"></button>
+    <button type="button" id="whiteBtn" class="whiteBtn colorThemeBtn"></button>
+    <button type="button" id="grayBtn" class="grayBtn colorThemeBtn"></button>
+    <button type="button" id="lightGrayBtn" class="lightGrayBtn colorThemeBtn"></button>
+    <button type="button" id="gradientBtn" class="gradientBtn colorThemeBtn"></button>
+    <br>
+    <br>
+
+    <label for="cardWidthBtn" class="form-label">Card/Page Default</label><br>
+    <button type="button" id="darkBtn" class="darkBtn colorThemeBtn"></button>
+    <button type="button" id="lightBtn" class="lightBtn colorThemeBtn"></button>
+    <br>
+    <br>
+
+  </aside>
+</template>
