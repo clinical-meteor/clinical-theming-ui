@@ -29,4 +29,4 @@ https://coolors.co/app
 ===============================
 #### Licensing  
 
-MIT.  Use as you will.  
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)

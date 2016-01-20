@@ -3,7 +3,7 @@
     <div class="cardHandle"></div>
 
     <label for="appTitleInput" class="form-label">App Title</label>
-    <input id="appTitleInput" type="text" name="appTitle" value="{{getAppTitle}}" placeholder="App Title">
+    <input id="appTitleInput" type="text" name="appTitle" value="{{appTitle}}" placeholder="App Title">
     <br>
 
     <label for="backgroundImgSrcInput" class="form-label">Background Image (Url)</label>
@@ -44,6 +44,51 @@
     <button type="button" id="lightBtn" class="lightBtn colorThemeBtn"></button>
     <br>
     <br>
+
+    <div id="paletteColors">
+      <label for="paletteColorAInput" class="form-label">Palette Color A</label>
+      <input id="paletteColorAInput" class="colorInput" type="text" name="paletteColorAInput" value="{{ paletteColor 'colorA' }}" placeholder="#111111">
+      <br>
+
+      <label for="paletteColorBInput" class="form-label">Palete Color B</label>
+      <input id="paletteColorBInput" class="colorInput" type="text" name="paletteColorBInput" value="{{ paletteColor 'colorB' }}" placeholder="#222222">
+      <br>
+
+      <label for="paletteColorCInput" class="form-label">Palette Color C</label>
+      <input id="paletteColorCInput" class="colorInput" type="text" name="paletteColorCInput" value="{{ paletteColor 'colorC' }}" placeholder="#333333">
+      <br>
+
+      <label for="paletteColorDInput" class="form-label">Palete Color D</label>
+      <input id="paletteColorDInput" class="colorInput" type="text" name="paletteColorDInput" value="{{ paletteColor 'colorD' }}" placeholder="#444444">
+      <br>
+
+      <label for="paletteColorEInput" class="form-label">Palete Color E</label>
+      <input id="paletteColorEInput" class="colorInput" type="text" name="paletteColorEInput" value="{{ paletteColor 'colorE' }}" placeholder="#555555">
+      <br>
+    </div>
+
+
+    <div id="brandColors">
+      <label for="brandColorAInput" class="form-label">Brand Color - default</label>
+      <input id="brandColorAInput" class="colorInput" type="text" name="brandColorAInput" value="{{ brandColor 'default' }}" placeholder="default">
+      <br>
+
+      <label for="brandColorBInput" class="form-label">Brand Color - success</label>
+      <input id="brandColorBInput" class="colorInput" type="text" name="brandColorBInput" value="{{ brandColor 'success' }}" placeholder="success">
+      <br>
+
+      <label for="brandColorCInput" class="form-label">Brand Color - info</label>
+      <input id="brandColorCInput" class="colorInput" type="text" name="brandColorCInput" value="{{ brandColor 'info' }}" placeholder="info">
+      <br>
+
+      <label for="brandColorDInput" class="form-label">Brand Color - warning</label>
+      <input id="brandColorDInput" class="colorInput" type="text" name="brandColorDInput" value="{{ brandColor 'warning' }}" placeholder="warning">
+      <br>
+
+      <label for="brandColorEInput" class="form-label">Brand Color - danger</label>
+      <input id="brandColorEInput" class="colorInput" type="text" name="brandColorEInput" value="{{ brandColor 'danger' }}" placeholder="danger">
+      <br>
+    </div>
 
   </aside>
 </template>
