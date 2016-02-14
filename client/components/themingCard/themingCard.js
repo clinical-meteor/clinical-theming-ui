@@ -4,8 +4,6 @@ Session.setDefault("backgroundImgSrc", 'forest1.jpg');
 Session.setDefault('isOpaque', 'opaque');
 Session.setDefault('foregroundTheme', 'light');
 
-Session.setDefault('appTitle', 'California Kids Cancer Comparison');
-
 Template.themingCard.events({
   'click .cardWidthBtn': function (){
     Session.set('pageIsWide', false);
