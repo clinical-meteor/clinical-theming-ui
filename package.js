@@ -1,6 +1,6 @@
 Package.describe({
   name: 'clinical:theming-ui',
-  version: '0.2.8',
+  version: '0.3.0',
   summary: 'Theming component for ClinicalFramework.',
   git: 'https://github.com/clinical-meteor/clinical-theming-ui',
   documentation: 'README.md'
@@ -13,7 +13,7 @@ Package.onUse(function (api) {
   api.use('grove:less@0.1.1');
   api.use('session');
 
-  api.use('clinical:theming@0.4.7');
+  api.use('clinical:theming@0.4.10');
   api.use('clinical:fonts@1.0.0')
   api.use("clinical:barcode@3.0.0");
   api.use('clinical:glass-ui@1.3.9');
@@ -27,6 +27,9 @@ Package.onUse(function (api) {
 
   api.addFiles('client/components/themingPage/themingPage.html', 'client');
   api.addFiles('client/components/themingPage/themingPage.js', 'client');
+
+  api.addFiles('client/components/themingActionButtons/themingActionButtons.html', 'client');
+  //api.addFiles('client/components/themingActionButtons/themingActionButtons.js', 'client');
 
   api.imply('clinical:theming');
 });

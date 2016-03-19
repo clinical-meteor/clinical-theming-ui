@@ -10,22 +10,27 @@
     <input id="backgroundImgSrcInput" type="text" name="backgroundImgSrcInput" value="{{getBackgroundImgSrcInput}}" placeholder="http://somewhere.com/background.jpg">
     <br>
 
-    <label for="backgroundBtn" class="form-label">Background Opacity</label><br>
-    <button id="backgroundBtn" class="booleanButton">Background</button>
-    <button id="opacityBtn" class="booleanButton">Opacity</button>
+    <label for="backgroundBtn" class="form-label">Opacity</label><br>
+    <!-- <button id="backgroundBtn" class="booleanButton">Background</button> -->
+    <button id="opacityBtn" class="booleanButton">{{getOpacityLevel}}</button>
+    <!-- <input id="opacitySlider" type="range" name="backgroundOpacity" value="0.95" min="0" max="1" step="0.01"> -->
     <br>
 
-    <label for="cardWidthBtn" class="form-label">Card/Page Default</label><br>
-    <button class="cardWidthBtn booleanButton">Card</button>
-    <button class="pageWidthBtn booleanButton">Page</button>
+
+
+    <label for="fullNavBtn" class="form-label">Page Default</label><br>
+    <button class="fullNavBtn booleanButton">FullScreen</button>
+    <button class="narrowNavBtn booleanButton">PageScreen</button>
+    <br>
     <br>
 
-    <label for="fullNavBtn" class="form-label">Page Width</label><br>
-    <button class="fullNavBtn booleanButton">Full Screen</button>
-    <button class="narrowNavBtn booleanButton">Page</button>
+    <label for="visibleNavbars" class="form-label">Navbar Defaults</label><br>
+    <button class="visibleNavbarBtn booleanButton" style="{{navbarVisibleIsSelected}}">Visible</button>
+    <button class="hiddenNavbarBtn booleanButton" style="{{navbarHiddenIsSelected}}">Hidden</button>
     <br>
     <br>
-    <br>
+
+
 
     <label for="cardWidthBtn" class="form-label">Card/Page Default</label><br>
     <button type="button" id="redBtn" class="redBtn colorThemeBtn"></button>
@@ -45,50 +50,63 @@
     <br>
     <br>
 
+    {{#if imagesAreRegistered}}
+      {{#each backgroundImages}}
+        <label for="cardWidthBtn" class="form-label">Background Images</label><br>
+        <button id="{{name}}Button" type="button" name="{{name}}" class="backgroundImageBtn" style="background: url({{url}}) no-repeat center center fixed;"></button>
+        <br>
+        <br>
+      {{/each}}
+    {{/if}}
+
+
+
     <div id="paletteColors">
-      <label for="paletteColorAInput" class="form-label">Palette Color A</label>
+
+      <label for="paletteColorAInput" class="colorLabel form-label">Palette Color A</label>
       <input id="paletteColorAInput" class="colorInput" type="text" name="paletteColorAInput" value="{{ paletteColor 'colorA' }}" placeholder="#111111">
-      <br>
+      <div class="previewColorBox" style="background-{{ paletteColor 'colorA' }}"></div>
 
-      <label for="paletteColorBInput" class="form-label">Palete Color B</label>
+      <label for="paletteColorBInput" class="colorLabel form-label">Palete Color B</label>
       <input id="paletteColorBInput" class="colorInput" type="text" name="paletteColorBInput" value="{{ paletteColor 'colorB' }}" placeholder="#222222">
-      <br>
+      <div class="previewColorBox" style="background-{{ paletteColor 'colorB' }}"></div>
 
-      <label for="paletteColorCInput" class="form-label">Palette Color C</label>
+
+      <label for="paletteColorCInput" class="colorLabel form-label">Palette Color C</label>
       <input id="paletteColorCInput" class="colorInput" type="text" name="paletteColorCInput" value="{{ paletteColor 'colorC' }}" placeholder="#333333">
-      <br>
+      <div class="previewColorBox" style="background-{{ paletteColor 'colorC' }}"></div>
 
-      <label for="paletteColorDInput" class="form-label">Palete Color D</label>
+      <label for="paletteColorDInput" class="colorLabel form-label">Palete Color D</label>
       <input id="paletteColorDInput" class="colorInput" type="text" name="paletteColorDInput" value="{{ paletteColor 'colorD' }}" placeholder="#444444">
-      <br>
+      <div class="previewColorBox" style="background-{{ paletteColor 'colorD' }}"></div>
 
-      <label for="paletteColorEInput" class="form-label">Palete Color E</label>
+      <label for="paletteColorEInput" class="colorLabel form-label">Palete Color E</label>
       <input id="paletteColorEInput" class="colorInput" type="text" name="paletteColorEInput" value="{{ paletteColor 'colorE' }}" placeholder="#555555">
-      <br>
+      <div class="previewColorBox" style="background-{{ paletteColor 'colorE' }}"></div>
     </div>
 
 
-    <div id="brandColors">
-      <label for="brandColorAInput" class="form-label">Brand Color - default</label>
+    <!-- <div id="brandColors">
+      <label for="brandColorAInput" class="colorLabel form-label">Brand Color - default</label>
       <input id="brandColorAInput" class="colorInput" type="text" name="brandColorAInput" value="{{ brandColor 'default' }}" placeholder="default">
-      <br>
+      <div class="previewColorBox" style="background-{{ brandColor 'default' }}"></div>
 
-      <label for="brandColorBInput" class="form-label">Brand Color - success</label>
+      <label for="brandColorBInput" class="colorLabel form-label">Brand Color - success</label>
       <input id="brandColorBInput" class="colorInput" type="text" name="brandColorBInput" value="{{ brandColor 'success' }}" placeholder="success">
-      <br>
+      <div class="previewColorBox" style="background-{{ brandColor 'success' }}"></div>
 
-      <label for="brandColorCInput" class="form-label">Brand Color - info</label>
+      <label for="brandColorCInput" class="colorLabel form-label">Brand Color - info</label>
       <input id="brandColorCInput" class="colorInput" type="text" name="brandColorCInput" value="{{ brandColor 'info' }}" placeholder="info">
-      <br>
+      <div class="previewColorBox" style="background-{{ brandColor 'info' }}"></div>
 
-      <label for="brandColorDInput" class="form-label">Brand Color - warning</label>
+      <label for="brandColorDInput" class="colorLabel form-label">Brand Color - warning</label>
       <input id="brandColorDInput" class="colorInput" type="text" name="brandColorDInput" value="{{ brandColor 'warning' }}" placeholder="warning">
-      <br>
+      <div class="previewColorBox" style="background-{{ brandColor 'warning' }}"></div>
 
-      <label for="brandColorEInput" class="form-label">Brand Color - danger</label>
+      <label for="brandColorEInput" class="colorLabel form-label">Brand Color - danger</label>
       <input id="brandColorEInput" class="colorInput" type="text" name="brandColorEInput" value="{{ brandColor 'danger' }}" placeholder="danger">
-      <br>
-    </div>
+      <div class="previewColorBox" style="background-{{ brandColor 'danger' }}"></div>
+    </div> -->
 
   </aside>
 </template>

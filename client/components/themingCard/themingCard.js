@@ -4,7 +4,61 @@ Session.setDefault("backgroundImgSrc", 'forest1.jpg');
 Session.setDefault('isOpaque', 'opaque');
 Session.setDefault('foregroundTheme', 'light');
 
+Template.themingCard.helpers({
+  getOpacityLevel: function (){
+    return Session.get("glassOpacity");
+  },
+  imagesAreRegistered: function(){
+    var theme = Session.get('ThemeConfig');
+    if (theme && theme.background && theme.background.images && (theme.background.images.length > 0)) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  backgroundImages: function(){
+    var theme = Session.get('ThemeConfig');
+    if (theme && theme.background && theme.background.images && (theme.background.images.length > 0)) {
+      return theme.background.images;
+    } else {
+      return [];
+    }
+  },
+  getBackgroundImgSrcInput: function(){
+    return Session.get('backgroundImgSrc');
+  },
+  navbarVisibleIsSelected: function(value){
+    //var theme = Session.get('ThemeConfig')
+    if (Session.get('showNavbars')) {
+      return "background-color: " + Theme.getBackgroundColor('colorA') + "; color: " + Theme.getPaletteColor('colorE') + ";";
+    } else {
+      return "";
+    }
+  },
+  navbarHiddenIsSelected: function(value){
+    //var theme = Session.get('ThemeConfig')
+    if (Session.get('showNavbars')) {
+      return "";
+    } else {
+      return "background-color: " + Theme.getBackgroundColor('colorA') + "; color: " + Theme.getPaletteColor('colorE') + ";";
+    }
+  }
+});
+
+
 Template.themingCard.events({
+  'click .visibleNavbarBtn': function(){
+    Session.set('showNavbars', true);
+  },
+  'click .hiddenNavbarBtn': function(){
+    Session.set('showNavbars', false);
+  },
+  'click .backgroundImageBtn': function(){
+    Session.set('backgroundImgSrc', this.url);
+    Theme.setBackgroundColor('image');
+    Theme.setBackgroundUrl(this.url);
+    Theme.paintBackgroundColor();
+  },
   'click .cardWidthBtn': function (){
     Session.set('pageIsWide', false);
     Session.set('pageLeftToWestRule', false);
@@ -92,10 +146,10 @@ Template.themingCard.events({
   },
   'click #opacityBtn': function () {
     if (Session.equals('isOpaque', 'opaque')) {
-      Session.set("glassOpacity", 1);
+      Session.set("glassOpacity", 1.00);
       Session.set('isOpaque', 'high');
     } else if (Session.equals('isOpaque', 'high')) {
-      Session.set("glassOpacity", 0.8);
+      Session.set("glassOpacity", 0.9);
       Session.set('isOpaque', 'low');
     } else if (Session.equals('isOpaque', 'low')) {
       Session.set("glassOpacity", 0.3);
